@@ -1,18 +1,15 @@
-# Build and Release Folders
-bin-debug/
-bin-release/
-[Oo]bj/
-[Bb]in/
+ import time
 
-# Other files and folders
-.settings/
+def start_timer():
+    start_time = time.time()
+    while True:
+        try:
+            elapsed_time = time.time() - start_time
+            print(f"Tempo corrido: {int(elapsed_time // 60)}:{int(elapsed_time % 60):02d}", end="\r")
+            time.sleep(1)
+        except KeyboardInterrupt:
+            print("\nCronômetro parado.")
+            break
 
-# Executables
-*.swf
-*.air
-*.ipa
-*.apk
-
-# Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
-# should NOT be excluded as they contain compiler settings and other important
-# information for Eclipse / Flash Builder.
+print("Pressione Ctrl+C para parar o cronômetro.")
+start_timer()
